@@ -17,7 +17,7 @@ Post.belongsTo(User, {
 // A user can have many comments
 User.hasMany(Comment, {
   foreignKey: 'user_id',
-  // When we delete a Driver, make sure to also delete the associated comments.
+  // When we delete a User, make sure to also delete the associated comments.
   onDelete: 'CASCADE',
 });
   

@@ -12,11 +12,11 @@ Comment.init(
       autoIncrement: true,
     },
     comment_content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-     // This column will store a reference of the 'id' of the 'post' that the 'comment' is associated with.
-     post_id: {
+    // This column will store a reference of the 'id' of the 'post' that the 'comment' is associated with.
+    post_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'post',
@@ -34,7 +34,6 @@ Comment.init(
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment',
