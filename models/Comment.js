@@ -15,6 +15,14 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+     // This column will store a reference of the 'id' of the 'post' that the 'comment' is associated with.
+     post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'post',
+        key: 'id',
+      }
+    },
     // This column will store a reference of the `id` of the `user` that made the 'comment'.
     user_id: {
       type: DataTypes.INTEGER,
@@ -22,14 +30,6 @@ Comment.init(
         model: 'user',
         key: 'id',
       },
-    },
-    // This column will store a reference of the 'id' of the 'post' that the 'comment' is associated with.
-    post_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'post',
-        key: 'id',
-      }
     },
   },
   {

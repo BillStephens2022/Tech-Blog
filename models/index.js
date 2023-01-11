@@ -1,6 +1,6 @@
-const User = require('.User');
+const User = require('./User');
 const Post = require('./Post');
-const Comment = require('/Comment');
+const Comment = require('./Comment');
 
 // A User may make many Posts
 User.hasMany(Post, {
