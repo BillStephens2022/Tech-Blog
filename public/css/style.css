@@ -42,3 +42,18 @@ h6{
 .card h4 {
     color: darkgray;
 }
+
+.login-subtitle {
+    text-align: center;
+}
+
+form {
+    display: block;
+    margin: auto;
+    max-width: 200px;
+}
+
+.posts {
+    margin: auto;
+}
+
