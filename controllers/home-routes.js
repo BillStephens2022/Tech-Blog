@@ -1,23 +1,31 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 
 // GET all Posts for homepage
 router.get('/', async (req, res) => {
-    try {
-      const postData = await Post.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['username'],
-          },
-        ],
-    });
-  
-    const posts = postData.map((post) =>
-    post.get({ plain: true })
-    );
-  
+  try {
+    const blogPostData = await Post.findAll({
+      attributes: ['id', 'post_title', 'post_content', 'user_id'],
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_content', 'post_id', 'user_id'],
+        },
+      ],
+    })
+    console.log(blogPostData);
+    const posts = blogPostData.map((post) => post.get({ plain: true }));
+    console.log(posts);
+    res.render('homepage', {
+      posts,
+      // We send over the current 'countVisit' session variable to be rendered
+      countVisit: req.session.countVisit,
+    })
     req.session.save(() => {
       // We set up a session variable to count the number of times we visit the homepage
       if (req.session.countVisit) {
@@ -26,18 +34,11 @@ router.get('/', async (req, res) => {
       } else {
         // If the 'countVisit' session variable doesn't exist, set it to 1
         req.session.countVisit = 1;
-    }
-  
-      res.render('homepage', {
-          posts,
-          // We send over the current 'countVisit' session variable to be rendered
-          countVisit: req.session.countVisit,
-      });
-    });
+      }
+    })
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+      res.status(500).json(err);
+    };
 });
 
 module.exports = router;
