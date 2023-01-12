@@ -23,6 +23,11 @@ Comment.init(
         key: 'id',
       }
     },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     // This column will store a reference of the `id` of the `user` that made the 'comment'.
     user_id: {
       type: DataTypes.INTEGER,

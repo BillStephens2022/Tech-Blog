@@ -19,6 +19,11 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     // This column will store a reference of the `id` of the `User` that made the 'Post'.
     user_id: {
       type: DataTypes.INTEGER,
