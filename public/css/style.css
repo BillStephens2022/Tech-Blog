@@ -29,6 +29,7 @@ h1 {
 h6{
     text-align: center;
 }
+
 .card {
     color: white;
     background-color: #39FF14;
@@ -51,6 +52,7 @@ form {
     display: block;
     margin: auto;
     max-width: 200px;
+    text-align: center;
 }
 
 .posts {
