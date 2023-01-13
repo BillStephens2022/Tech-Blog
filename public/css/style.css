@@ -120,3 +120,19 @@ h6 {
     width: 500px;
     text-align: center;
 }
+
+.comment-card {
+    width: 500px;
+    margin: auto;
+    color: black;
+    background-color: white;
+}
+
+.comment-card h6 {
+    color: black;
+}
+
+.h3-comments, .h3-single-post {
+    text-align: center;
+}
+
