@@ -127,6 +127,7 @@ h6 {
     margin: auto;
     color: black;
     background-color: white;
+    padding: 8px;
 }
 
 .comment-card h6 {
