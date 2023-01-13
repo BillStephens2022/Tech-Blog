@@ -1,0 +1,21 @@
+
+
+<section class="post">
+  
+  {{> single-post-details post}}
+
+  <form class="submit-comment-form">
+    <!-- Comment Text Area -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="new-comment-content">Comment</label>
+      <textarea id="new-comment-content" class="form-control" placeholder="Enter comment here"></textarea>
+    </div>
+
+    <!-- Comment Submit button -->
+    <button type="submit" class="btn btn-success btn-block mb-4 comment-submit-button" id="comment-submit-button">Post Comment</button>
+    
+  </form>
+
+  
+</section>
+<script src="/js/createComment.js"></script>

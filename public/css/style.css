@@ -34,17 +34,28 @@ h6 {
 .card {
     color: white;
     background-color: #39FF14;
-    box-shadow: 2px 2px 15px white;
+    /* box-shadow: 2px 2px 15px white; */
     margin-left: 25px;
     margin-right: 25px;
 }
 
-.card h2, .card h5 {
-    color: black;
+.card-title {
+    color: white;
+    padding: 8px;
 }
 
-.card h4 {
+.card-content {
+    background-color: white;
     color: darkgray;
+    min-height: 100px;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.card-author {
+    color: white;
+    padding: 8px;
 }
 
 .subtitle {
@@ -70,6 +81,15 @@ form {
 .posts {
     margin: auto;
 }
+
+.post-links {
+    text-decoration: none;
+}
+
+.card:hover {
+    box-shadow: 2px 2px 15px white;
+}
+
 
 #create-post-section {
     text-align: center;
