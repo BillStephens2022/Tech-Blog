@@ -62,7 +62,7 @@ h6 {
     text-align: center;
 }
 
-form {
+.login-form, .register-form {
     display: block;
     margin: auto;
     max-width: 275px;
@@ -97,4 +97,26 @@ form {
 
 #create-post-button:hover {
     box-shadow: 5px 5px 15px white;
+}
+
+#new-post-form {
+    display: block;
+    margin: auto;
+    width: 500px;
+    text-align: center;
+}
+
+#new-post-title, #new-post-content {
+    width: 500px;
+}
+
+#new-post-content {
+    height: 300px;
+}
+
+.submit-comment-form {
+    display: block;
+    margin: auto;
+    width: 500px;
+    text-align: center;
 }

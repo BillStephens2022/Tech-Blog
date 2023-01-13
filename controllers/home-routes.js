@@ -57,6 +57,40 @@ router.get('/register', (req, res) => {
   res.render('register');
 });
 
+router.get('/post/:id', withAuth, async (req, res) => {
+  console.log("single post requested!");
+  console.log("Post ID:" + req.params.id);
+  
+  try {
+    // Find the logged in user based on the post ID
+    const singlePostData = await Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: ['id', 'post_title', 'post_content', 'date_created'],
+        include: [
+          { 
+            model: Comment,
+            attributes: ['id','comment_content', 'post_id', 'user_id', 'date_created'],
+            include: {
+              model: User,
+              attributes: ['username']
+            }
+          },
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
+    })
+    const post = singlePostData.get({ plain: true });
+    console.log(post);
+    res.render('singlePost', {post, logged_in: req.session.logged_in});
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;
