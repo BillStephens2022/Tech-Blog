@@ -1,6 +1,10 @@
-
-<h2>Your Dashboard</h2>
+<section id="create-post-section">
+<button class="btn btn-primary m-5" id="create-post-button">Create New Post</button>
+</section>
 
 <section class="posts">
-
+  {{#each posts as |post|}}
+  {{> post-details}}
+  {{/each}}
 </section>
+<script src="/js/createPost.js"></script>

@@ -47,7 +47,7 @@ h6 {
     color: darkgray;
 }
 
-.login-subtitle {
+.subtitle {
     text-align: center;
 }
 
@@ -71,4 +71,10 @@ form {
     margin: auto;
 }
 
+#create-post-section {
+    text-align: center;
+}
 
+#create-post-button:hover {
+    box-shadow: 5px 5px 15px white;
+}
