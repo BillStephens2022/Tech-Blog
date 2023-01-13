@@ -1,10 +1,11 @@
 <section id="create-post-section">
 <button class="btn btn-primary m-5" id="create-post-button">Create New Post</button>
 </section>
-
+{{#if posts.length}}
 <section class="posts">
   {{#each posts as |post|}}
   {{> post-details}}
   {{/each}}
 </section>
+{{/if}}
 <script src="/js/createPost.js"></script>

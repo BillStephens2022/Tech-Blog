@@ -1,8 +1,9 @@
 <!-- We are tracking the number of times we visit this homepage -->
 <h6>Number of times you've visited this homepage: {{countVisit}}</h6>
-
+{{#if posts.length}}
 <section class="posts">
   {{#each posts as |post|}}
   {{> post-details}}
   {{/each}}
 </section>
+{{/if}}
