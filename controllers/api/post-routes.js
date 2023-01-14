@@ -35,4 +35,49 @@ router.delete('/:id', withAuth, async (req, res) => {
     .catch((err) => res.json(err));
 });
 
+router.get('/edit-post/:id', async (req, res) => {
+  console.log("Post ID:" + req.params.id);
+  post_id = req.params.id;
+  try {
+    // Find post to be edited based on the post ID
+    const editPostData = await Post.findOne({
+      where: {
+        id: post_id,
+      },
+      attributes: ['id', 'post_title', 'post_content', 'date_created'],
+        include: [
+          { 
+            model: User,
+            attributes: ['username']
+          },
+        ]
+    })
+    const post = editPostData.get({ plain: true });
+    console.log(post);
+    res.render('edit-post', {post});
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+
+router.put('/:id', withAuth, async (req, res) => {
+  try { 
+    await Post.update(
+      {
+        post_title: req.body.post_title,
+        post_content: req.body.post_content,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    )
+    res.json(editedPost);
+  } catch (err) {
+    res.json(err)};
+});
+
 module.exports = router;
