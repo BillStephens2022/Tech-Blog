@@ -22,6 +22,17 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+// Delete a single post by id
+router.delete('/:id', withAuth, async (req, res) => {
+  await Post.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((deletedpost) => {
+      res.json(deletedpost);
+    })
+    .catch((err) => res.json(err));
+});
 
 module.exports = router;

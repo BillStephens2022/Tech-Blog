@@ -4,8 +4,10 @@
 {{#if posts.length}}
 <section class="posts">
   {{#each posts as |post|}}
-  {{> post-details}}
+  {{> post-details-dashboard}}
   {{/each}}
 </section>
 {{/if}}
 <script src="/js/createPost.js"></script>
+<script src="/js/editPost.js"></script>
+<script src="/js/deletePost.js"></script>

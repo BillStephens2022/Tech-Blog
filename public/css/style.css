@@ -138,10 +138,10 @@ h6 {
     text-align: center;
 }
 
-#edit-button {
+.edit-button {
     margin-left: 50px;
 }
 
-#delete-button {
+.delete-button {
     margin-left: 10px;
 }

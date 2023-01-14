@@ -1,3 +1,5 @@
+const editButtons = document.getElementsByClassName('edit-button');
+
 const editPost = async (event) => {
     event.preventDefault();
     console.log('sending edit request!');
@@ -5,6 +7,6 @@ const editPost = async (event) => {
 
 
 
-document
-.querySelector('#edit-button')
-.addEventListener('click', editPost);
+Array.from(editButtons).forEach((editButton) => {
+    editButton.addEventListener('click', editPost);
+});
