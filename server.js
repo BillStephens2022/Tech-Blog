@@ -13,11 +13,10 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'abundantSecrets',
+  secret: 'Super secret secret',
   cookie: {
     // cookie/session expires after 30 minutes
     maxAge: 30 * 60 * 1000,
-
   },
   resave: false,
   saveUninitialized: true,
