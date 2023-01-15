@@ -4,7 +4,10 @@
 
   Tech Blog is blog app where a user can view blog posts posted by others, create their own posts, and comment on others' posts.  The homepage shows posts by all users and when logged, in, users can click on a post and comment on it.  From the dashboard page, the user will see their own individual posts and is able to edit or delete their posts.  Technologies used include Node.js, Express, MYSQL, Sequelize, bcrypt.
 
+  Screenshot of deployed app (https://tech-blog-billstephens.herokuapp.com) :
   
+  ![Screen Shot 2023-01-15 at 6 04 45 AM](https://user-images.githubusercontent.com/113722447/212537119-01993c72-8ab9-4fe0-95a3-c76c7433d415.png)
+
   
   ## Table of Contents
   
