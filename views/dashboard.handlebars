@@ -2,11 +2,13 @@
 <button class="btn btn-primary m-5" id="create-post-button">Create New Post</button>
 </section>
 {{#if posts.length}}
-<section class="posts">
+<div class="container">
+<section class="posts row">
   {{#each posts as |post|}}
   {{> post-details-dashboard}}
   {{/each}}
 </section>
 {{/if}}
+</div>
 <script src="/js/createPost.js"></script>
 <script src="/js/deletePost.js"></script>

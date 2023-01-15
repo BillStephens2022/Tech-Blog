@@ -1,12 +1,19 @@
-body {
-    background-color: darkslategray;
+:root {
+    --main-blue: #3b5998;
+    --dark: #292b2c;
+}
+
+html, body {
+    background-color: var(--dark);
     color: white;
 }
+
+
 
 .hero {
     max-height: 300px;   
     text-align: center;
-    background: radial-gradient(black, #39FF14);
+    background: radial-gradient(black, var(--main-blue));
     align-items: center;
     display: block;
 }
@@ -16,14 +23,14 @@ h1 {
     font-size: 6em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-shadow:
-    0 0 7px #fff,
-    0 0 10px #39FF14,
-    0 0 21px #39FF14,
-    0 0 42px #39FF14,
-    0 0 82px #39FF14,
-    0 0 92px #39FF14,
-    0 0 102px #39FF14,
-    0 0 151px #39FF14;
+    0 0 7px white,
+    0 0 10px var(--main-blue),
+    0 0 21px var(--main-blue),
+    0 0 42px var(--main-blue),
+    0 0 82px var(--main-blue),
+    0 0 92px var(--main-blue),
+    0 0 102px var(--main-blue),
+    0 0 151px var(--main-blue);
 }
 
 h6 {
@@ -31,12 +38,18 @@ h6 {
     color: white;
 }
 
+.container {
+    margin: auto;
+}
+
+.row {
+    margin: 0;
+}
+
 .card {
     color: white;
-    background-color: #39FF14;
-    /* box-shadow: 2px 2px 15px white; */
-    margin-left: 25px;
-    margin-right: 25px;
+    background-color: var(--main-blue);
+    box-shadow: 2px 2px 2px white;
 }
 
 .card-title {
@@ -46,10 +59,10 @@ h6 {
 
 .card-content {
     background-color: white;
-    color: darkgray;
+    color: var(--dark);
     min-height: 100px;
     margin: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 8px;
 }
 
@@ -76,11 +89,7 @@ h6 {
 }
 
 #register {
-    color: rgb(247, 90, 90);
-}
-
-.posts {
-    margin: auto;
+    color: white;
 }
 
 .post-links {
@@ -111,7 +120,7 @@ h6 {
     width: 500px;
 }
 
-#new-post-content {
+#new-post-content, #edit-post-content {
     height: 300px;
 }
 
@@ -120,6 +129,10 @@ h6 {
     margin: auto;
     width: 500px;
     text-align: center;
+}
+
+.edit-post-form {
+    max-width: 500px;
 }
 
 .comment-card {
@@ -145,3 +158,22 @@ h6 {
 .delete-button {
     margin-left: 10px;
 }
+
+@media screen and (max-width: 510px) {
+  
+    #new-post-title, #new-post-content, #edit-post-content, #new-comment-content {
+      width: 300px;
+      
+    }
+
+}   
+
+@media screen and (max-width: 310px) {
+  
+    #new-post-title, #new-post-content, #edit-post-content, #new-comment-content {
+      width: 300px;
+      text-align: center;
+    }
+
+}   
+
