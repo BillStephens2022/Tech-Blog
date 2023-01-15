@@ -1,8 +1,10 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
+let database = process.env.DATABASE_URL || 'tech_blog_db';
+
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
+  database,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
   {
