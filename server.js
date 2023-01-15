@@ -6,12 +6,12 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+// set up express server
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+// for express handlebars setup
 const hbs = exphbs.create({ helpers });
-
+// sets up session for logged in user.  session will expire after 30 minutes
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -25,12 +25,13 @@ const sess = {
   })
 };
 
+// express-session
 app.use(session(sess));
 
-
+// handlebars engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));

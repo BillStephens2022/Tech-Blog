@@ -1,12 +1,10 @@
+// function to handle registration where user enters username, email and password.
 const registerFormHandler = async (event) => {
     event.preventDefault();
     const username = document.querySelector('#register-username').value.trim();
     const email = document.querySelector('#register-email').value.trim();
     const password = document.querySelector('#register-password').value.trim();
-    console.log(username);
-    console.log(email);
-    console.log(password);
-  
+    // ensures all 3 values are entered before sending to the back end
     if (username && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',

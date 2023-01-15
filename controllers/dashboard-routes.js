@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// this is executed when the user accesses their dashboard.  The dashboard page will be loaded with all of their posts rendered
 router.get('/', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -32,6 +33,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+// renders a new post form when the user clicks on create post from their dashboard.
 router.get('/new-post', (req, res) => {
     res.render('new-post', {
         loggedIn: true

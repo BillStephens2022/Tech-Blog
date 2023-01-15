@@ -1,3 +1,5 @@
+// function that handles the submission of a newly created post
+
 const submitPost = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#new-post-title').value.trim();

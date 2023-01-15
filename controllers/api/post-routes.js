@@ -7,10 +7,9 @@ router.get('/', (req, res) => {
     console.log('GET request received!');
 });
 
-// Create Post
+// Create Post in the back end after user submits on the front end
 router.post('/', async (req, res) => {
   try {
-    console.log('Creating Post!')
     const newPostData = await Post.create({
         post_title: req.body.title,
         post_content: req.body.content,
@@ -35,6 +34,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     .catch((err) => res.json(err));
 });
 
+// finds the post the user requested to edit and displays it in an editable format
 router.get('/edit-post/:id', async (req, res) => {
   console.log("Post ID:" + req.params.id);
   post_id = req.params.id;
@@ -53,7 +53,6 @@ router.get('/edit-post/:id', async (req, res) => {
         ]
     })
     const post = editPostData.get({ plain: true });
-    console.log(post);
     res.render('edit-post', {post});
     
   } catch (err) {
@@ -61,7 +60,7 @@ router.get('/edit-post/:id', async (req, res) => {
   }
 })
 
-
+// executed after a user submits their edited post
 router.put('/:id', withAuth, async (req, res) => {
   try { 
     await Post.update(

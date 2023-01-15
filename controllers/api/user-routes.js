@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// CREATE new user
+/* creates new user in the tech_blog database after new registration and updates their 
+status to 'logged in' which will allow themto perform certain tasks */
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -22,7 +23,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// Login
+// checks login credentials submitted by user
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
@@ -55,6 +56,7 @@ router.post('/login', async (req, res) => {
     }
   });
   
+  // logs the user out and destroys their log in session
   router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {

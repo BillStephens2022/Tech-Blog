@@ -1,4 +1,4 @@
-//const session = require("express-session");
+//function to handle logout
 
 const logout = async () => {
     const response = await fetch('/api/users/logout', {

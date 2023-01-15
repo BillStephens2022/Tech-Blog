@@ -3,7 +3,7 @@ const { Comment, Post, User } = require('../../models');
 
 
 
-// Create Post
+// Creates a new comment in the back end after user submits the new post on front end
 router.post('/', async (req, res) => {
     try {
       console.log('Creating Comment!')

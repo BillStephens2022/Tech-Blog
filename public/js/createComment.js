@@ -1,3 +1,4 @@
+// function for creating and submitting a comment to a post
 const submitComment = async (event) => {
     event.preventDefault();
     const comment_content = document.querySelector('#new-comment-content').value.trim();

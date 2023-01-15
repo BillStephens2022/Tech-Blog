@@ -1,12 +1,14 @@
+/* on the edit-post page (this page is rendered after the user clicks an edit button on a post in their dashboard), the
+user will be able to edit their post and there is a save button the will replace the previous post*/
+
 const saveButton = document.getElementsByClassName('edit-submit-button')[0];
 
-
+// function the submits the edited post
 const editPost = async (event) => {
     event.preventDefault();
     post_id = getEditPostId(event);
     const post_title = document.querySelector('#edit-post-title').value.trim();
     const post_content = document.querySelector('#edit-post-content').value.trim();
-    console.log('sending edit request for post ID: ' + post_id);
     if (post_id) {
         const response = await fetch(`/api/posts/${post_id}`, {
           method: 'PUT',
@@ -28,10 +30,7 @@ const editPost = async (event) => {
 
 saveButton.addEventListener('click', editPost);
 
-// Array.from(editButtons).forEach((editButton) => {
-//     editButton.addEventListener('click', editPost);
-// });
-
+// gets the post ID of the post being edited.
 function getEditPostId (event) {
     event.preventDefault();
     let buttonId = event.target.id;
